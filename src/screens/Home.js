@@ -1,12 +1,11 @@
-import React from 'react'
-import { List } from 'react-native-paper';
-import { ScrollView, StyleSheet, View } from 'react-native'
+import React from 'react';
+import {List} from 'react-native-paper';
+import {ScrollView, StyleSheet, View} from 'react-native';
 
-const Home = ({ navigation }) => {
-
-  const navigate = (route) => navigation.navigate(route)
+const Home = ({navigation}) => {
+  const navigate = route => navigation.navigate(route);
   return (
-    <ScrollView styles={{ flex: 1 }}>
+    <ScrollView styles={{flex: 1}}>
       <List.Accordion
         title="Bottom Tab Navigation"
         left={props => <List.Icon {...props} icon="folder" />}>
@@ -19,9 +18,15 @@ const Home = ({ navigation }) => {
       <List.Accordion
         title="List Animation"
         left={props => <List.Icon {...props} icon="folder" />}>
-        <List.Item title="Contacts Screen" onPress={() => navigate('Contacts')} />
+        <List.Item
+          title="Contacts Screen"
+          onPress={() => navigate('Contacts')}
+        />
         <List.Item title="List Screen" onPress={() => navigate('List')} />
-        <List.Item title="Products Screen" onPress={() => navigate('Products')} />
+        <List.Item
+          title="Products Screen"
+          onPress={() => navigate('Products')}
+        />
       </List.Accordion>
       <List.Accordion
         title="Floating Action Button"
@@ -36,14 +41,23 @@ const Home = ({ navigation }) => {
       <List.Accordion
         title="Header Animation"
         left={props => <List.Icon {...props} icon="folder" />}>
-        <List.Item title="Animated Header 1" onPress={() => navigate('HeaderAnim1')} />
-        <List.Item title="Animated Header 2" onPress={() => navigate('HeaderAnim2')} />
-        <List.Item title="Animated Header 3" onPress={() => navigate('HeaderAnim3')} />
+        <List.Item
+          title="Animated Header 1"
+          onPress={() => navigate('HeaderAnim1')}
+        />
+        <List.Item
+          title="Animated Header 2"
+          onPress={() => navigate('HeaderAnim2')}
+        />
+        <List.Item
+          title="Animated Header 3"
+          onPress={() => navigate('HeaderAnim3')}
+        />
       </List.Accordion>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

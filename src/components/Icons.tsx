@@ -1,52 +1,51 @@
 import React from 'react';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Feather from 'react-native-vector-icons/Feather';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Entypo from 'react-native-vector-icons/Entypo';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import Octicons from 'react-native-vector-icons/Octicons';
-import Foundation from 'react-native-vector-icons/Foundation';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import { StyleProp, ViewStyle } from 'react-native';
+import {AntDesign} from '@expo/vector-icons';
+import {FontAwesome} from '@expo/vector-icons';
+import {FontAwesome5} from '@expo/vector-icons';
+import {Ionicons} from '@expo/vector-icons';
+import {Feather} from '@expo/vector-icons';
+import {MaterialCommunityIcons} from '@expo/vector-icons';
+import {Entypo} from '@expo/vector-icons';
+import {MaterialIcons} from '@expo/vector-icons';
+import {SimpleLineIcons} from '@expo/vector-icons';
+import {Octicons} from '@expo/vector-icons';
+import {Foundation} from '@expo/vector-icons';
+import {EvilIcons} from '@expo/vector-icons';
+import {StyleProp, ViewStyle} from 'react-native';
 
 export const Icons = {
-    MaterialCommunityIcons,
-    MaterialIcons,
-    Ionicons,
-    Feather,
-    FontAwesome,
-    FontAwesome5,
-    AntDesign,
-    Entypo,
-    SimpleLineIcons,
-    Octicons,
-    Foundation,
-    EvilIcons,
-}
-
+  MaterialCommunityIcons,
+  MaterialIcons,
+  Ionicons,
+  Feather,
+  FontAwesome,
+  FontAwesome5,
+  AntDesign,
+  Entypo,
+  SimpleLineIcons,
+  Octicons,
+  Foundation,
+  EvilIcons,
+};
 
 export interface IconProps {
-    type: Function;
-    name: string;
-    color?: string;
-    size?: number;
-    style?: StyleProp<ViewStyle>;
+  type: any;
+  name: string;
+  color?: string;
+  size?: number;
+  style?: StyleProp<ViewStyle>;
 }
 
-const Icon = ({ type, name, color, size = 24, style }: IconProps) => {
-    const fontSize = 24;
-    const Tag = type;
-    return (
-        <>
-            {type && name && (
-                <Tag name={name} size={size || fontSize} color={color} style={style} />
-            )}
-        </>
-    )
-}
+const Icon = ({type, name, color, size = 24, style}: IconProps) => {
+  const fontSize = 24;
+  const Tag = type;
+  return (
+    <>
+      {type && name && (
+        <Tag name={name} size={size || fontSize} color={color} style={style} />
+      )}
+    </>
+  );
+};
 
-export default Icon
+export default Icon;
