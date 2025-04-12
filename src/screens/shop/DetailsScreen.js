@@ -1,80 +1,95 @@
-import React, { useEffect, useState } from 'react'
-import { Dimensions, Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { SharedElement } from 'react-navigation-shared-element'
-import Icon, { Icons } from '../../components/Icons'
-import MyHeader from '../../components/MyHeader'
-import Colors from '../../constants/Colors'
-import { bagsList } from '../../constants/Constants'
-const { width, height } = Dimensions.get('window');
+import React, {useEffect, useState} from 'react';
+import {
+  Dimensions,
+  Image,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {SharedElement} from 'react-navigation-shared-element';
+import Icon, {Icons} from '../../components/Icons';
+import MyHeader from '../../components/MyHeader';
+import Colors from '../../constants/Colors';
+const {width, height} = Dimensions.get('window');
 
-const colors = [
-  Colors.red,
-  Colors.green,
-  Colors.yellow,
-  Colors.black,
-]
+const colors = [Colors.red, Colors.green, Colors.yellow, Colors.black];
 const ColorsSelector = () => {
-  const [selected, setSelected] = useState(0)//index
+  const [selected, setSelected] = useState(0); //index
   return (
     <View style={styles.container}>
       <Text>Colors</Text>
-      <View style={{ flexDirection: 'row', marginVertical: 5, }}>
+      <View style={{flexDirection: 'row', marginVertical: 5}}>
         {colors.map((_, i) => (
-          <View key={i} style={[styles.outerCircle, { borderColor: selected == i ? _ : 'transparent' }]}>
+          <View
+            key={i}
+            style={[
+              styles.outerCircle,
+              {borderColor: selected == i ? _ : 'transparent'},
+            ]}>
             <TouchableOpacity
               onPress={() => setSelected(i)}
-              style={[styles.colorBtn, { backgroundColor: _ }]} />
+              style={[styles.colorBtn, {backgroundColor: _}]}
+            />
           </View>
         ))}
       </View>
     </View>
-  )
-}
+  );
+};
 
 const SizeSelector = () => {
   return (
     <View style={styles.container}>
       <Text>Size</Text>
-      <Text style={{ fontWeight: 'bold', fontSize: 20, marginVertical: 5, }}>12 cm</Text>
+      <Text style={{fontWeight: 'bold', fontSize: 20, marginVertical: 5}}>
+        12 cm
+      </Text>
     </View>
-  )
-}
+  );
+};
 
 const Quantity = () => {
   const [quantity, setQuantity] = useState(1);
   return (
     <View style={styles.quantity}>
-      <TouchableOpacity style={styles.qtBtn} onPress={() => setQuantity(prev => prev - 1)}>
+      <TouchableOpacity
+        style={styles.qtBtn}
+        onPress={() => setQuantity(prev => prev - 1)}>
         <Icon type={Icons.Entypo} name="minus" />
       </TouchableOpacity>
       <Text style={styles.quantityText}>{quantity}</Text>
-      <TouchableOpacity style={styles.qtBtn} onPress={() => setQuantity(prev => prev + 1)}>
+      <TouchableOpacity
+        style={styles.qtBtn}
+        onPress={() => setQuantity(prev => prev + 1)}>
         <Icon type={Icons.Entypo} name="plus" />
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
-export default function DetailsScreen({ navigation, route }) {
-  const { item } = route.params;
+export default function DetailsScreen({navigation, route}) {
+  const {item} = route.params;
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       StatusBar.setBackgroundColor(item.bgColor);
-      StatusBar.setBarStyle('light-content')
-    })
+      StatusBar.setBarStyle('light-content');
+    });
     return () => unsubscribe;
-  }, [navigation])
+  }, [navigation]);
   useEffect(() => {
     const unsubscribe = navigation.addListener('blur', () => {
       StatusBar.setBackgroundColor(Colors.white);
-      StatusBar.setBarStyle('dark-content')
-    })
+      StatusBar.setBarStyle('dark-content');
+    });
     return () => unsubscribe;
-  }, [navigation])
+  }, [navigation]);
   return (
     <>
-      <SafeAreaView style={[styles.container, { backgroundColor: item.bgColor }]}>
+      <SafeAreaView style={[styles.container, {backgroundColor: item.bgColor}]}>
         <MyHeader
           back
           onPressBack={() => navigation.goBack()}
@@ -96,8 +111,14 @@ export default function DetailsScreen({ navigation, route }) {
               <Text style={styles.bigText}>{item.price}</Text>
             </View>
           </View>
-          <SharedElement id={`item.${item.id}.image`} style={styles.imageContainer}>
-            <Image source={item.image} style={styles.image} resizeMode='center' />
+          <SharedElement
+            id={`item.${item.id}.image`}
+            style={styles.imageContainer}>
+            <Image
+              source={item.image}
+              style={styles.image}
+              resizeMode="center"
+            />
           </SharedElement>
           <View style={styles.bottomContainer}>
             <View style={styles.variants}>
@@ -105,41 +126,65 @@ export default function DetailsScreen({ navigation, route }) {
               <SizeSelector />
             </View>
             <View style={styles.descriptionContainer}>
-              <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>Description</Text>
+              <Text style={{fontWeight: 'bold', marginBottom: 10}}>
+                Description
+              </Text>
               <Text>{item.description}</Text>
             </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}>
               <Quantity />
-              <TouchableOpacity style={[styles.favoriteBtn, { backgroundColor: item.bgColor }]}>
-                <Icon type={Icons.AntDesign} name="heart" size={18} color={Colors.white} />
+              <TouchableOpacity
+                style={[styles.favoriteBtn, {backgroundColor: item.bgColor}]}>
+                <Icon
+                  type={Icons.AntDesign}
+                  name="heart"
+                  size={18}
+                  color={Colors.white}
+                />
               </TouchableOpacity>
             </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-              <TouchableOpacity style={[styles.cartBtm, { borderColor: item.bgColor }]}>
-                <Icon type={Icons.AntDesign} name="shoppingcart" color={item.bgColor} />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}>
+              <TouchableOpacity
+                style={[styles.cartBtm, {borderColor: item.bgColor}]}>
+                <Icon
+                  type={Icons.AntDesign}
+                  name="shoppingcart"
+                  color={item.bgColor}
+                />
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.btn, { backgroundColor: item.bgColor }]}>
+              <TouchableOpacity
+                style={[styles.btn, {backgroundColor: item.bgColor}]}>
                 <Text style={styles.btnText}>Buy Now</Text>
               </TouchableOpacity>
             </View>
           </View>
         </View>
       </SafeAreaView>
-      <SafeAreaView style={{ backgroundColor: Colors.white }} />
+      <SafeAreaView style={{backgroundColor: Colors.white}} />
     </>
-  )
+  );
 }
 
-DetailsScreen.sharedElements = (route) => {
-  const { item } = route.params;
+DetailsScreen.sharedElements = route => {
+  const {item} = route.params;
   return [
     {
       id: `item.${item.id}.image`,
       animation: 'move',
       resize: 'clip',
-    }
-  ]
-}
+    },
+  ];
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -245,4 +290,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: Colors.white,
   },
-})
+});

@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import Icon, {Icons} from '../components/Icons';
 import Screen from '../screens/Screen';
@@ -79,5 +79,3 @@ export default function Tab4() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({});

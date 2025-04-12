@@ -1,16 +1,6 @@
 import React from 'react';
 
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-  StatusBar,
-  Dimensions,
-  StyleSheet,
-  Platform,
-} from 'react-native';
+import {View, Dimensions, StyleSheet} from 'react-native';
 
 const {height: sHeight, width: sWidth} = Dimensions.get('screen');
 
@@ -29,5 +19,3 @@ const HeaderAnim3 = () => {
 };
 
 export default HeaderAnim3;
-
-const styles = StyleSheet.create({});

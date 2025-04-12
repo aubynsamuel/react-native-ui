@@ -1,29 +1,40 @@
-import React from 'react'
-import { Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { SharedElement } from 'react-navigation-shared-element'
-import MyHeader from '../../components/MyHeader'
-import Colors from '../../constants/Colors'
-import { bagsList } from '../../constants/Constants'
-const { width } = Dimensions.get('window');
-const ListItem = ({ item, navigation }) => {
+import React from 'react';
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {SharedElement} from 'react-navigation-shared-element';
+import MyHeader from '../../components/MyHeader';
+import Colors from '../../constants/Colors';
+import {bagsList} from '../../constants/Constants';
+const {width} = Dimensions.get('window');
+const ListItem = ({item, navigation}) => {
   return (
     <View style={styles.item}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Details', { item })}
-        style={[styles.imageContainer, { backgroundColor: item.bgColor }]}>
+        onPress={() => navigation.navigate('Details', {item})}
+        style={[styles.imageContainer, {backgroundColor: item.bgColor}]}>
         <SharedElement id={`item.${item.id}.image`}>
           <Image source={item.image} style={styles.image} />
         </SharedElement>
       </TouchableOpacity>
       <View style={styles.textContainer}>
-        <Text style={[styles.text, { color: Colors.darkGray }]}>{item.title}</Text>
+        <Text style={[styles.text, {color: Colors.darkGray}]}>
+          {item.title}
+        </Text>
         <Text style={styles.text}>${item.price}</Text>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default function ProductsList({ navigation, route }) {
+export default function ProductsList({navigation, route}) {
   return (
     <SafeAreaView style={styles.container}>
       <MyHeader
@@ -37,12 +48,14 @@ export default function ProductsList({ navigation, route }) {
       <FlatList
         data={bagsList}
         numColumns={2}
-        style={{ paddingVertical: 10 }}
+        style={{paddingVertical: 10}}
         keyExtractor={(item, index) => item.id + index.toString()}
-        renderItem={({ item }) => <ListItem item={item} navigation={navigation} />}
+        renderItem={({item}) => (
+          <ListItem item={item} navigation={navigation} />
+        )}
       />
     </SafeAreaView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -74,4 +87,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 15,
   },
-})
+});

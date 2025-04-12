@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {
   View,
@@ -21,7 +21,6 @@ import {
   subtitle2,
   title,
 } from '../../constants/Constants';
-import LinearGradient from 'react-native-linear-gradient';
 import Animated, {
   Extrapolation,
   FadeIn,
@@ -34,7 +33,6 @@ import Animated, {
 import {useNavigation} from '@react-navigation/native';
 
 export const {height: sHeight, width: sWidth} = Dimensions.get('screen');
-type Props = {};
 
 const ImageHeight = 280;
 

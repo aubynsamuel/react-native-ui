@@ -2,7 +2,6 @@ import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Icon, {Icons} from '../../components/Icons';
 import Colors from '../../constants/Colors';
-// import {constants} from './HeaderAnim2';
 import {constants} from './HeaderAnim3';
 
 const {width: sWidth} = Dimensions.get('screen');

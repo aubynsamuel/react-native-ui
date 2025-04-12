@@ -2,7 +2,7 @@
 
 # React-Native
 
-_____________________________________________________________________
+---
 
 ```sh
 install drawer dependency
@@ -21,7 +21,7 @@ Link: <https://youtu.be/FATLP5SkGxE>
 
 ### Like, Share and subscribe and stay tuned for more such type of videos
 
-_____________________________________________________________________
+---
 
 # Floating Action Button (FAB)
 
@@ -38,7 +38,7 @@ https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installatio
 
 <img src="/gif/FAB-demo.gif" width="250" height="500"/>
 
-_____________________________________________________________________
+---
 
 ### React-Navigation
 
@@ -50,9 +50,9 @@ _____________________________________________________________________
 
 Tutorial:
 
-* Tab1 link: <https://youtu.be/XiutL0uLICg>
-* Tab2 link: <https://youtu.be/spA7Rf9Ud_4>
-* Tab3 link: <https://youtu.be/Y7apwk6hQOY>
+- Tab1 link: <https://youtu.be/XiutL0uLICg>
+- Tab2 link: <https://youtu.be/spA7Rf9Ud_4>
+- Tab3 link: <https://youtu.be/Y7apwk6hQOY>
 
 ### Demo
 
@@ -60,7 +60,7 @@ Tutorial:
 
 ### For Tab4
 
-* <https://reactnavigation.org/docs/material-bottom-tab-navigator>
+- <https://reactnavigation.org/docs/material-bottom-tab-navigator>
 
 ```
 npm install @react-navigation/material-bottom-tabs react-native-paper react-native-vector-icons
@@ -70,7 +70,7 @@ npm install @react-navigation/material-bottom-tabs react-native-paper react-nati
 
 ### For Tab5
 
-* <https://reactnavigation.org/docs/material-top-tab-navigator>
+- <https://reactnavigation.org/docs/material-top-tab-navigator>
 
 ```
 npm install @react-navigation/material-top-tabs react-native-tab-view
@@ -104,7 +104,7 @@ npm start or react-native start
 run app into virtual device using
 
 ```
-react-native run-android 
+react-native run-android
 or
 react-native run-ios
 ```

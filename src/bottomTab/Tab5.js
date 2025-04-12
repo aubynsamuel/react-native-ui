@@ -1,22 +1,50 @@
-import React from 'react'
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import Icon, { Icons } from '../components/Icons';
+import React from 'react';
+import {SafeAreaView} from 'react-native';
+import Icon, {Icons} from '../components/Icons';
 import Screen from '../screens/Screen';
 import Colors from '../constants/Colors';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 const Tab = createMaterialTopTabNavigator();
 
 const TabArr = [
-  { route: 'Home', label: 'Home', type: Icons.Ionicons, activeIcon: 'grid', inActiveIcon: 'grid-outline', component: Screen },
-  { route: 'Like', label: 'Like', type: Icons.MaterialCommunityIcons, activeIcon: 'heart-plus', inActiveIcon: 'heart-plus-outline', component: Screen },
-  { route: 'Search', label: 'Search', type: Icons.MaterialCommunityIcons, activeIcon: 'timeline-plus', inActiveIcon: 'timeline-plus-outline', component: Screen },
-  { route: 'Account', label: 'Account', type: Icons.FontAwesome, activeIcon: 'user-circle', inActiveIcon: 'user-circle-o', component: Screen },
+  {
+    route: 'Home',
+    label: 'Home',
+    type: Icons.Ionicons,
+    activeIcon: 'grid',
+    inActiveIcon: 'grid-outline',
+    component: Screen,
+  },
+  {
+    route: 'Like',
+    label: 'Like',
+    type: Icons.MaterialCommunityIcons,
+    activeIcon: 'heart-plus',
+    inActiveIcon: 'heart-plus-outline',
+    component: Screen,
+  },
+  {
+    route: 'Search',
+    label: 'Search',
+    type: Icons.MaterialCommunityIcons,
+    activeIcon: 'timeline-plus',
+    inActiveIcon: 'timeline-plus-outline',
+    component: Screen,
+  },
+  {
+    route: 'Account',
+    label: 'Account',
+    type: Icons.FontAwesome,
+    activeIcon: 'user-circle',
+    inActiveIcon: 'user-circle-o',
+    component: Screen,
+  },
 ];
 
 export default function Tab5() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{flex: 1}}>
       <Tab.Navigator
         tabBarPosition="bottom"
         screenOptions={{
@@ -28,27 +56,32 @@ export default function Tab5() {
             height: 6,
             backgroundColor: Colors.primary,
           },
-          tabBarItemStyle: { flexDirection: 'row' },
-          tabBarStyle: { height: 70, justifyContent: 'center' },
+          tabBarItemStyle: {flexDirection: 'row'},
+          tabBarStyle: {height: 70, justifyContent: 'center'},
           // tabBarScrollEnabled: true,
           tabBarActiveTintColor: Colors.primary,
           tabBarInactiveTintColor: Colors.primaryLite,
-        }}
-      >
+        }}>
         {TabArr.map((_, index) => {
           return (
-            <Tab.Screen key={index} name={_.route} component={_.component}
+            <Tab.Screen
+              key={index}
+              name={_.route}
+              component={_.component}
               options={{
-                tabBarIcon: ({ color, size, focused }) => (
-                  <Icon name={focused ? _.activeIcon : _.inActiveIcon} type={_.type} size={size} color={color} />
+                tabBarIcon: ({color, size, focused}) => (
+                  <Icon
+                    name={focused ? _.activeIcon : _.inActiveIcon}
+                    type={_.type}
+                    size={size}
+                    color={color}
+                  />
                 ),
               }}
             />
-          )
+          );
         })}
       </Tab.Navigator>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({})

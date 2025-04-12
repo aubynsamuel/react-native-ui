@@ -11,12 +11,9 @@ import {
   DefaultTheme,
   NavigationContainer,
 } from '@react-navigation/native';
-import {
-  CardStyleInterpolators,
-  createStackNavigator,
-} from '@react-navigation/stack';
+import {CardStyleInterpolators} from '@react-navigation/stack';
 import React from 'react';
-import {Platform, SafeAreaView, StatusBar, useColorScheme} from 'react-native';
+import {Platform, StatusBar, useColorScheme} from 'react-native';
 import AnimTab1 from './src/bottomTab/AnimTab1';
 import AnimTab2 from './src/bottomTab/AnimTab2';
 import AnimTab3 from './src/bottomTab/AnimTab3';
@@ -117,11 +114,9 @@ const RootStack = () => {
       <Stack.Screen
         name="HeaderAnim3"
         component={HeaderAnim3}
-        options={
-          {
-            // gestureEnabled: false,
-          }
-        }
+        options={{
+          gestureEnabled: false,
+        }}
       />
     </Stack.Navigator>
   );

@@ -29,7 +29,7 @@ import {
 } from '../../constants/WhatsApp';
 import {CTAItems, ListItem, MembersTab} from './Header2Components';
 
-const {height: sHeight, width: sWidth} = Dimensions.get('screen');
+const {width: sWidth} = Dimensions.get('screen');
 
 export const constants = {
   padding: 16,

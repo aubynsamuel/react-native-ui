@@ -16,7 +16,7 @@ export const colors = {
   active: '#05294a99',
   sceneBg: '#04567f',
   screenBg: '#05294a',
-}
+};
 
 export const constant = {
   SPACING: 16,
@@ -24,8 +24,4 @@ export const constant = {
   titleFontSize: 24,
   textFontSize: 16,
   subTextFontSize: 14,
-}
-
-
-
-
+};

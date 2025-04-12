@@ -1,24 +1,27 @@
-import React, { useEffect, useRef } from 'react'
-import { Dimensions, FlatList, SafeAreaView, StyleSheet, Text, ToastAndroid, TouchableOpacity, View } from 'react-native'
+import React, {useEffect, useRef} from 'react';
+import {
+  Dimensions,
+  FlatList,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  ToastAndroid,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Styles from '../common/Styles';
 import Colors from '../constants/Colors';
 import MyHeader from '../components/MyHeader';
-import { contacts } from '../constants/Contacts';
-import * as Animatable from 'react-native-animatable'
-import { Animations } from '../constants/Animations';
+import {contacts} from '../constants/Contacts';
+import * as Animatable from 'react-native-animatable';
+import {Animations} from '../constants/Animations';
 
-const ContactItem = ({ item: { name, number }, index, animation }) => {
+const ContactItem = ({item: {name, number}, index, animation}) => {
   return (
-    <Animatable.View
-      animation={animation}
-      duration={1000}
-      delay={index * 300}
-    >
+    <Animatable.View animation={animation} duration={1000} delay={index * 300}>
       <TouchableOpacity style={styles.item}>
         <View style={styles.avatar}>
-          <Text style={styles.letter}>
-            {name.slice(0, 1).toUpperCase()}
-          </Text>
+          <Text style={styles.letter}>{name.slice(0, 1).toUpperCase()}</Text>
         </View>
         <View style={styles.details}>
           <Text style={styles.name}>{name}</Text>
@@ -26,44 +29,45 @@ const ContactItem = ({ item: { name, number }, index, animation }) => {
         </View>
       </TouchableOpacity>
     </Animatable.View>
-  )
-}
+  );
+};
 
-export default function ContactList({ route, navigation }) {
+export default function ContactList({route, navigation}) {
   const viewRef = useRef(null);
-  const animation = Animations[Math.floor(Math.random() * Animations.length)]
+  const animation = Animations[Math.floor(Math.random() * Animations.length)];
   console.log(animation);
-  const ItemSeparator = () => <View style={styles.separator} />
+  const ItemSeparator = () => <View style={styles.separator} />;
 
-  const renderItem = ({ item, index }) => (
-    <ContactItem item={item} index={index} animation={animation} />)
+  const renderItem = ({item, index}) => (
+    <ContactItem item={item} index={index} animation={animation} />
+  );
 
   const ListEmptyComponent = () => {
     const anim = {
-      0: { translateY: 0 },
-      0.5: { translateY: 50 },
-      1: { translateY: 0 },
-    }
+      0: {translateY: 0},
+      0.5: {translateY: 50},
+      1: {translateY: 0},
+    };
     return (
       <Animatable.View style={[styles.listEmpty]}>
         <Animatable.Text
           animation={anim}
           easing="ease-in-out"
           duration={3000}
-          style={{ fontSize: 24 }}
+          style={{fontSize: 24}}
           iterationCount="infinite">
           Empty List!
         </Animatable.Text>
       </Animatable.View>
-    )
-  }
+    );
+  };
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
-      viewRef.current.animate({ 0: { opacity: 0.5, }, 1: { opacity: 1 } });
-    })
+      viewRef.current.animate({0: {opacity: 0.5}, 1: {opacity: 1}});
+    });
     // ToastAndroid.show(animation+ ' Animation', ToastAndroid.SHORT);
     return () => unsubscribe;
-  }, [navigation])
+  }, [navigation]);
   return (
     <SafeAreaView style={Styles.container}>
       <MyHeader
@@ -88,7 +92,7 @@ export default function ContactList({ route, navigation }) {
         />
       </Animatable.View>
     </SafeAreaView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -136,4 +140,4 @@ const styles = StyleSheet.create({
     fontSize: 32,
     backgroundColor: Colors.white,
   },
-})
+});
